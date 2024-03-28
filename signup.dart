@@ -1,21 +1,15 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
-import 'package:hotelapp/login_page.dart';
+import 'package:login/login_page.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Color.fromARGB(197, 2, 2, 2),
       body: Container(
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                    "/home/vivek/Desktop/CoderHub/flutterP/hotelapp/lib/Images/food.jpeg"),
-                fit: BoxFit.cover)),
-        margin: const EdgeInsets.all(24),
+        margin: EdgeInsets.all(24),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           _header(context),
@@ -27,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
   }
 
   _header(context) {
-    return const Column(
+    return Column(
       children: [
         Text(
           "Create Account",
@@ -45,70 +39,70 @@ class SignUpScreen extends StatelessWidget {
         TextField(
           decoration: InputDecoration(
             hintText: "Username",
-            fillColor: Color.fromARGB(255, 248, 242, 248),
+            fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: const Icon(Icons.person),
+            prefixIcon: Icon(Icons.person),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         TextField(
           decoration: InputDecoration(
             hintText: "Email id",
-            fillColor: Color.fromARGB(232, 252, 250, 250),
+            fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: const Icon(Icons.email_outlined),
+            prefixIcon: Icon(Icons.email_outlined),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         TextField(
           decoration: InputDecoration(
             hintText: "Password",
-            fillColor: Color.fromARGB(226, 248, 247, 247),
+            fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: const Icon(Icons.password_outlined),
+            prefixIcon: Icon(Icons.password_outlined),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
           obscureText: true,
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         TextField(
           decoration: InputDecoration(
             hintText: "Retype Password",
-            fillColor: Color.fromRGBO(255, 254, 254, 1),
+            fillColor: Theme.of(context).primaryColor.withOpacity(0.1),
             filled: true,
-            prefixIcon: const Icon(Icons.password_outlined),
+            prefixIcon: Icon(Icons.password_outlined),
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
           ),
           obscureText: true,
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         ElevatedButton(
           onPressed: () {},
-          style: ElevatedButton.styleFrom(
-              shape: const StadiumBorder(),
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              backgroundColor: Color(0xFFE01541)),
-          child: const Text(
+          child: Text(
             "Sign Up",
             style: TextStyle(fontSize: 20),
+          ),
+          style: ElevatedButton.styleFrom(
+            shape: StadiumBorder(),
+            padding: EdgeInsets.symmetric(vertical: 16),
           ),
         )
       ],
@@ -119,15 +113,10 @@ class SignUpScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Already have an account?"),
-        TextButton(
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const LoginPage()));
-            },
-            child: const Text("Login"))
+        Text("Already have an account?"),
+        TextButton(onPressed: () {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+        }, child: Text("Login"))
       ],
     );
   }
